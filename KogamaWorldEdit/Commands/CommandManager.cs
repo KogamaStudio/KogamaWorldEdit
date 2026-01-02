@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,28 +19,21 @@ internal class CommandManager
         Commands[cmd] = handler;
     }
 
-    public static bool Execute(string cmd, string[] args)
-    {
-        if (Commands.TryGetValue(cmd.ToLower(), out var handler))
-        {
-            handler?.Invoke(args);
-            return true;
-        }
-        return false;
-    }
-
     [HarmonyPatch(typeof(SendMessageControl), "HandleChatCommands")]
     [HarmonyPrefix]
     internal static bool HandleChatPrefix(string chatMsg)
     {
-        if (chatMsg.StartsWith("//"))
+        if (!chatMsg.StartsWith("//")) return true;
+
+        string text = chatMsg.Substring(2);
+        string[] parts = text.Split(' ');
+        string cmd = parts[0].ToLower();
+        string[] args = new string[parts.Length - 1];
+        Array.Copy(parts, 1, args, 0, parts.Length - 1);
+
+        if (Commands.TryGetValue(cmd, out var handler))
         {
-            string[] parts = chatMsg.Substring(2).Split(' ');
-            string cmd = parts[0];
-            string[] args = parts.Skip(1).ToArray();
-
-            if (!Execute(cmd, args)) return true;
-
+            handler(args);
             return false;
         }
 
