@@ -6,11 +6,8 @@ namespace KogamaWorldEdit.AntiAntiCheat;
 [HarmonyPatch]
 internal class ThemeCrashFix
 {
-    [HarmonyPatch(typeof(ThemeSkybox), "Activate")]
+    [HarmonyPatch(typeof(Theme), "Initialize", typeof(int))]
     [HarmonyPrefix]
-    private static bool ThemeActivatePrefix()
-    {
-        return false;
-    }
+    private static bool BlockThemeInitialize(int woid) => false;
 }
 
