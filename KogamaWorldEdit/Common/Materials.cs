@@ -10,6 +10,7 @@ public static class Materials
 {
     public static readonly Dictionary<string, int> Map = new()
     {
+        { "air", -1 },
         { "bright_red", 0 },
         { "red", 1 },
         { "dark_red", 2 },
@@ -79,5 +80,16 @@ public static class Materials
         { "speed", 67 },
         { "crumble", 68 },
     };
+
+    public static int GetMaterialId(string input)
+    {
+        if (int.TryParse(input, out int id))
+            return id;
+
+        if (Map.TryGetValue(input.ToLower(), out int materialId))
+            return materialId;
+
+        return -999;
+    }
 }
 

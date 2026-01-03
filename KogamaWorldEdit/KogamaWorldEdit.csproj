@@ -37,25 +37,25 @@
 			<HintPath>lib\Assembly-CSharp.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
-		<Reference Include="MVCommon">
-			<HintPath>lib\MVCommon.dll</HintPath>
-			<Private>true</Private>
-		</Reference>
-		<Reference Include="MVWorldObject">
-			<HintPath>lib\MVWorldObject.dll</HintPath>
-			<Private>true</Private>
-		</Reference>
 		<Reference Include="UnityEngine.CoreModule">
 			<HintPath>lib\UnityEngine.CoreModule.dll</HintPath>
-			<Private>true</Private>
+			<Private>false</Private>
 		</Reference>
 		<Reference Include="UnityEngine.InputLegacyModule">
 			<HintPath>lib\UnityEngine.InputLegacyModule.dll</HintPath>
-			<Private>true</Private>
+			<Private>false</Private>
 		</Reference>
 		<Reference Include="UnityEngine.InputModule">
 			<HintPath>lib\UnityEngine.InputModule.dll</HintPath>
-			<Private>true</Private>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="KogamaModFramework">
+			<HintPath>lib\KogamaModFramework.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>lib\Newtonsoft.Json.dll</HintPath>
+			<Private>false</Private>
 		</Reference>
 	</ItemGroup>
 
