@@ -1,5 +1,7 @@
 # KogamaWorldEdit
 
+Adds WorldEdit-style building commands to KoGaMa
+
 ## Installation
 1. Download latest nightly build of MelonLoader
 2. Extract zip to ```%localappdata%\KogamaLauncher-WWW\Launcher\Standalone\Mods```
